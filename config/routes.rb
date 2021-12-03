@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :products
   post "checkout/create", to: "checkout#create"
   resources :webhooks, only: [:create]
+
+  get "success", to: "checkout#success"
+  get "failure", to: "checkout#failure"
 end
