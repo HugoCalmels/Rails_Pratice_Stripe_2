@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :webhooks, only: [:create]
 
   get "success", to: "checkout#success"
-  get "failure", to: "checkout#failure"
+  get "cancel", to: "checkout#cancel"
 end
