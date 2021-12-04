@@ -24,10 +24,14 @@
   <% end %>
   <hr />
   <h1>Shopping cart </h1>
-    <% @cart.each do |product| %>
-      <%= product.name %>
-      <%end %>
-  <hr />
+
+
+    <% if @cart.present? %>
+    <%= @cart.collect { |item| item.to_builder.attributes! } %>
+    <%= button_to "boy now!", checkout_create_path, remote: true, data: { disable_with: "validating..."} %>
+
+    <% end %>
+    <hr />
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
